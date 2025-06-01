@@ -53,3 +53,14 @@ npm init -y   #initalize the node modules
 npm install express multer cors googleapis google-auth-library #install all neccesary depemdencies
 
 node server.js # run server
+
+## How It Works
+1.User opens the app in a browser and grants camera/microphone access
+
+2.User records a testimonial video
+
+3.Upon stopping, the video is uploaded to the backend
+
+4.The backend saves it temporarily and uploads it to Google Drive
+
+5.The temporary file is deleted from the server
