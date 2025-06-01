@@ -31,14 +31,14 @@ app.post("/upload", upload.single("video"), async (req, res) => {
 
     // Authenticate with Google API
     const auth = new google.auth.GoogleAuth({
-      keyFile: "video-testimonial-record-46124305170a.json", // Path to the service account key file
+      keyFile: "video-testimonial-record-489a3cb02638.json", // Path to the service account key file
       scopes: ["https://www.googleapis.com/auth/drive.file"], // Scopes for accessing Google Drive
     });
 
     const driveService = google.drive({ version: "v3", auth }); // Create a Google Drive service client
     const fileMetadata = {
       name: `${req.file.originalname}`, // Name of the file to be uploaded
-      parents: ["1V0PtNBEG6dcKH1XcLPlnz2KTk9TrxKFo"], // Parent folder ID in Google Drive
+      parents: ["1Uy8MQCMH4NrEh8Oror_1sLVYsWRfyCUy"], // Parent folder ID in Google Drive
     };
     const media = {
       mimeType: req.file.mimetype, // MIME type of the uploaded file
@@ -57,7 +57,7 @@ app.post("/upload", upload.single("video"), async (req, res) => {
     fs.unlinkSync(path.join(__dirname, req.file.path)); // Delete the file from the local storage after upload
 
     res.send(`File uploaded successfully: ${file.data.id}`); // Send a success response with the file ID
-    
+
   } catch (error) {
     if (error.response) {
       // Check if there is an error response from Google Drive API
